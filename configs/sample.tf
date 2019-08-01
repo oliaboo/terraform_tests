@@ -11,6 +11,16 @@ resource "google_compute_network" "vpc_network" {
 }
 
 
+variable "image_id" {
+  type = string
+}
+
+variable "availability_zone_names" {
+  type    = list(string)
+  default = ["us-west-1a"]
+}
+
+
 resource "google_compute_instance" "default" {
   name         = "test"
   machine_type = "n1-standard-1"
